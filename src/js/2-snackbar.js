@@ -2,6 +2,9 @@
 
 import iziToast from 'izitoast';
 
+import errorMessage from '../img/error.svg';
+import successMessage from '../img/success.svg';
+
 const formCreatePromise = document.querySelector('.form');
 
 const onFormCreatePromise = evt => {
@@ -40,8 +43,7 @@ const infoResolvePromise = {
   backgroundColor: '#59a10d',
   theme: 'dark', // light
   iconColor: '#fafafb',
-  iconUrl: '../img/success.svg',
-  maxWidth: '383px',
+  iconUrl: successMessage,
   close: true,
   closeOnEscape: true,
   closeOnClick: true,
@@ -55,8 +57,7 @@ const infoRejectPromise = {
   backgroundColor: '#ef4040',
   theme: 'dark', // light
   iconColor: '#fafafb',
-  iconUrl: '../img/error.svg',
-  maxWidth: '302px',
+  iconUrl: errorMessage,
   close: true,
   closeOnEscape: true,
   closeOnClick: true,

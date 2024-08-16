@@ -3,6 +3,8 @@
 import flatpickr from 'flatpickr';
 import iziToast from 'izitoast';
 
+import errorMessage from '../img/error.svg';
+
 const inputEndTimer = document.querySelector('#datetime-picker');
 const btnStartTimer = document.querySelector('button[data-start]');
 const valueOutputDays = document.querySelector('span[data-days]');
@@ -92,8 +94,7 @@ const invalidDate = {
   theme: 'dark', // light
   color: 'red', // blue, red, green, yellow
   iconColor: '#fafafb',
-  iconUrl: '../img/error.svg',
-  maxWidth: '302px',
+  iconUrl: errorMessage,
   close: true,
   closeOnEscape: true,
   closeOnClick: true,
