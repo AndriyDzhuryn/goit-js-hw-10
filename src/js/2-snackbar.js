@@ -3,14 +3,19 @@
 import iziToast from 'izitoast';
 
 const formCreatePromise = document.querySelector('.form');
-console.dir(formCreatePromise);
+
+let resultPromise = '';
 
 const onFormCreatePromise = evt => {
   evt.preventDefault();
   const delay = evt.target.elements.delay.value;
+
+  resultPromise = evt.target.elements.state.value;
+  localStorage.setItem('resultPromise', resultPromise);
+
   const createPromise = new Promise((resolve, reject) => {
     setTimeout(() => {
-      if (evt.target.elements.state.value === 'fulfilled') {
+      if (localStorage.getItem('resultPromise') === 'fulfilled') {
         infoResolvePromise.message = `Fulfilled promise in ${delay}ms`;
         resolve(iziToast.success(infoResolvePromise));
       } else {
@@ -19,7 +24,7 @@ const onFormCreatePromise = evt => {
       }
     }, delay);
   });
-  // evt.target.reset();
+  evt.target.reset();
   return createPromise;
 };
 
