@@ -92,7 +92,7 @@ const invalidDate = {
   theme: 'dark', // light
   color: 'red', // blue, red, green, yellow
   iconColor: '#fafafb',
-  iconUrl: 'img/bi_x-octagon.png',
+  iconUrl: '../img/error.svg',
   maxWidth: '302px',
   close: true,
   closeOnEscape: true,

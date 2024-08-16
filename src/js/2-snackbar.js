@@ -40,7 +40,7 @@ const infoResolvePromise = {
   backgroundColor: '#59a10d',
   theme: 'dark', // light
   iconColor: '#fafafb',
-  iconUrl: 'img/bi_check2-circle.png',
+  iconUrl: '../img/success.svg',
   maxWidth: '383px',
   close: true,
   closeOnEscape: true,
@@ -55,7 +55,7 @@ const infoRejectPromise = {
   backgroundColor: '#ef4040',
   theme: 'dark', // light
   iconColor: '#fafafb',
-  iconUrl: 'img/bi_x-octagon.png',
+  iconUrl: '../img/error.svg',
   maxWidth: '302px',
   close: true,
   closeOnEscape: true,
