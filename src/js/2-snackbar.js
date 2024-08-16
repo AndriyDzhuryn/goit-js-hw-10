@@ -4,32 +4,35 @@ import iziToast from 'izitoast';
 
 const formCreatePromise = document.querySelector('.form');
 
-let resultPromise = '';
-
 const onFormCreatePromise = evt => {
   evt.preventDefault();
-  const delay = evt.target.elements.delay.value;
-
-  resultPromise = evt.target.elements.state.value;
-  localStorage.setItem('resultPromise', resultPromise);
-
-  const createPromise = new Promise((resolve, reject) => {
-    setTimeout(() => {
-      if (localStorage.getItem('resultPromise') === 'fulfilled') {
-        infoResolvePromise.message = `Fulfilled promise in ${delay}ms`;
-        resolve(iziToast.success(infoResolvePromise));
-      } else {
-        infoRejectPromise.message = `Rejected promise in ${delay}ms`;
-        reject(iziToast.error(infoRejectPromise));
-      }
-    }, delay);
+  const promise = new Promise((resolve, reject) => {
+    if (evt.target.elements.state.value === 'fulfilled') {
+      resolve(evt.target.elements.delay.value);
+    } else {
+      reject(evt.target.elements.delay.value);
+    }
   });
-  evt.target.reset();
-  return createPromise;
+
+  promise
+    .then(delay => {
+      setTimeout(() => {
+        infoResolvePromise.message = `Fulfilled promise in ${delay}ms`;
+        iziToast.success(infoResolvePromise);
+      }, delay);
+    })
+    .catch(delay => {
+      setTimeout(() => {
+        infoRejectPromise.message = `Rejected promise in ${delay}ms`;
+        iziToast.error(infoRejectPromise);
+      }, delay);
+    })
+    .finally(() => {
+      evt.target.reset();
+    });
 };
 
 formCreatePromise.addEventListener('submit', onFormCreatePromise);
-
 const infoResolvePromise = {
   messageColor: '#ffffff',
   messageSize: '16px',
